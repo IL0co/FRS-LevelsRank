@@ -31,10 +31,6 @@
 
 * **addons/sourcemod/configs/levels_ranks/fakerank.ini**
 
-## command
-
-+ **sm_cfr** - *(available to all players)* On/Off my personal rank.
-
 ## Contributions
 Contributions are always welcome!
 Just make a [pull request](../../pulls).
