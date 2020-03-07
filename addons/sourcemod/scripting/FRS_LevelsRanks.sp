@@ -31,7 +31,7 @@ public void OnPluginStart()
 	if(LR_IsLoaded())
 		LR_OnCoreIsReady();
 		
-	for(int i = 1; i <= MaxClients; i++) 	if(!IsClientAuthorized(i) && IsClientInGame(i))
+	for(int i = 1; i <= MaxClients; i++) 	if(IsClientAuthorized(i) && IsClientInGame(i))
 		FRS_OnClientLoaded(i);
 
 	FRS_OnCoreLoaded();
