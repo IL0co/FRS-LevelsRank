@@ -21,6 +21,8 @@
 * [FRS Core](https://github.com/IL0co/FRS-LevelsRank)
 * [LR Core](https://github.com/levelsranks/levels-ranks-core)
 
+## Filter key</font>
+* <font color='#FFA500'>**LR**</font>
 
 ## Installation Instructions
 1. Drop all files on to the server folder
