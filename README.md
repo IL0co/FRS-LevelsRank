@@ -18,7 +18,7 @@
 # Installation 
 
 ## Requirements
-* [FRS Core](https://github.com/IL0co/FRS-LevelsRank)
+* [FRS Core](https://github.com/IL0co/FRS-Core)
 * [LR Core](https://github.com/levelsranks/levels-ranks-core)
 
 ## Filter key</font>
