@@ -7,16 +7,17 @@
 
 public Plugin myinfo = 
 {
-	name		= "[FRS][LR] LevelRanks FakeRank",
-	version		= "2.0",
+	name		= "[FRS][LR] LevelRanks FakeRanks",
+	version		= "2.0.1",
 	description	= "Fake Ranks from your level in LR",
-	author		= "ღ λŌK0ЌЭŦ ღ ™",
+	author		= "iLoco",
 	url			= "https://github.com/IL0co"
 }
 
 #define IND "LR"
 
 int cType;
+eSides cSide;
 KeyValues kv;
 
 public void OnPluginEnd()
@@ -85,7 +86,7 @@ stock void LoadMyIdFromLevel(int client)
 {
 	char buff[5];
 	Format(buff, sizeof(buff), "%i", LR_GetClientInfo(client, ST_RANK));
-	FRS_SetClientRankId(client, kv.GetNum(buff, 0) + cType, IND);
+	FRS_SetClientRankId(client, kv.GetNum(buff, 0) + cType, IND, cSide);
 }
 
 stock void LoadMyConfig()
@@ -99,5 +100,6 @@ stock void LoadMyConfig()
 		SetFailState("[FRS][LR] LevelsRanks File is not found (%s)", buff);
 
 	cType = kv.GetNum("Type", 0);
+	cSide = view_as<eSides>(kv.GetNum("Align", 0));
 	kv.JumpToKey("FakeRank");
 }
