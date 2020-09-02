@@ -53,18 +53,22 @@ public void OnMapStart()
 {
 	char Path[256];
 
+	kv.Rewind();
+	kv.JumpToKey("FakeRank");
 	if(kv.GotoFirstSubKey(false))
 	{
 		do
 		{
-			FormatEx(Path, sizeof(Path), "materials/panorama/images/icons/skillgroups/skillgroup%i.svg", kv.GetNum(NULL_STRING, 0));
-			if(FileExists(Path))	AddFileToDownloadsTable(Path);
+			if(cSide == Right)
+				FormatEx(Path, sizeof(Path), "materials/panorama/images/icons/skillgroups/skillgroup%i.svg", kv.GetNum(NULL_STRING, 0));
+			else
+				FormatEx(Path, sizeof(Path), "materials/panorama/images/icons/xp/level%i.png", kv.GetNum(NULL_STRING, 0));
+
+			if(FileExists(Path))	
+				AddFileToDownloadsTable(Path);
 		}
 		while(kv.GotoNextKey(false));
 	}
-
-	kv.Rewind();
-	kv.JumpToKey("FakeRank");
 }
 
 public void FRS_OnClientLoaded(int client)
@@ -84,6 +88,9 @@ void ConfigLoad()
 
 stock void LoadMyIdFromLevel(int client)
 {
+	kv.Rewind();
+	kv.JumpToKey("FakeRank");
+
 	char buff[5];
 	Format(buff, sizeof(buff), "%i", LR_GetClientInfo(client, ST_RANK));
 	FRS_SetClientRankId(client, kv.GetNum(buff, 0) + cType, IND, cSide);
@@ -101,5 +108,4 @@ stock void LoadMyConfig()
 
 	cType = kv.GetNum("Type", 0);
 	cSide = view_as<eSides>(kv.GetNum("Align", 0));
-	kv.JumpToKey("FakeRank");
 }
